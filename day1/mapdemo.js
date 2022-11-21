@@ -235,6 +235,15 @@ var users=[
 var userMap=new Map(Object.entries(users));
 
 for (var [key, value] of userMap.entries()){
-    console.log(key,"-->", value);
+    //console.log(key,"-->", value);
+    for(var [k,v] of Object.entries(value)){
+        console.log(k,v)
+        if(k === "address"){
+            for(var[k1,v1] of Object.entries(v)){
+                console.log(k1,v1)
+            }
+        }
+    }
+
 }
 
