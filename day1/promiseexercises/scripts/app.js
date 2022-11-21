@@ -2,12 +2,12 @@ window.addEventListener('load',function(){
 
     var bodyRef=document.querySelector("body");
 
-    getImage("../images/download.png").then(response,function(){
+    getImage("../images/download.png").then(function(response){
 
         console.log(response);
-        //bodyRef.innerHTML='<img src='+response+'>'
+        bodyRef.innerHTML='<img src='+response+'>'
 
-    }).catch(error,function(){
+    }).catch(function(error){
       console.log(error)
     })
 
@@ -22,10 +22,10 @@ function getImage(url){
       image.onload=function(){
           resolve(url)
       }
-      img.onerror = function(){
+      image.onerror = function(){
           reject(url)
       }
-      img.src = url
+      image.src = url
 
   })
 
