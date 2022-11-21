@@ -42,8 +42,19 @@ console.log(customer.getActive())
 //es5
 class Member{
     constructor(memberId,name) {
-     this.memberId=memberId;
+//abstract class
+        if(this.constructor === Member){
+            throw new Error("Abstract class can't be instantiated")
+        }
+
+        this.memberId=memberId;
      this.name=name;
+
+    }
+    //abstract methods
+    computeLoyaltyPoints(){
+        throw new Error("Abstract method")
+
     }
 
     display(){
@@ -68,6 +79,10 @@ class PlatinumMember extends Member{
 
     }
 
+
+    computeLoyaltyPoints() {
+        console.log("overridden");
+    }
 
     get discount() {
         return this._discount;
@@ -102,7 +117,11 @@ class PlatinumMember extends Member{
     }
 }
 
+//var member=new Member(1,"Param");
 
 var platinumMember=new PlatinumMember(0.5,true,438998,"Shyam");
 
 console.log(platinumMember.memberId);
+
+
+
