@@ -38,4 +38,71 @@ console.log(customer.display());
 console.log(customer.getActive())
 
 
+//method 4
+//es5
+class Member{
+    constructor(memberId,name) {
+     this.memberId=memberId;
+     this.name=name;
+    }
 
+    display(){
+        console.log(this.memberId+","+this.name)
+    }
+
+}
+
+var member=new Member(244,"Vignesh")
+member.display();
+
+
+//inheritance
+
+class PlatinumMember extends Member{
+    constructor(discount,offers,memberId,name) {
+        super(memberId,name);
+        this._discount = discount;
+        this._offers = offers;
+        this._memberId = memberId;
+        this._name = name;
+
+    }
+
+
+    get discount() {
+        return this._discount;
+    }
+
+    set discount(value) {
+        this._discount = value;
+    }
+
+    get offers() {
+        return this._offers;
+    }
+
+    set offers(value) {
+        this._offers = value;
+    }
+
+    get memberId() {
+        return this._memberId;
+    }
+
+    set memberId(value) {
+        this._memberId = value;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(value) {
+        this._name = value;
+    }
+}
+
+
+var platinumMember=new PlatinumMember(0.5,true,438998,"Shyam");
+
+console.log(platinumMember.memberId);
