@@ -230,3 +230,11 @@ var users=[
         }
     }
 ]
+
+//map
+var userMap=new Map(Object.entries(users));
+
+for (var [key, value] of userMap.entries()){
+    console.log(key,"-->", value);
+}
+
