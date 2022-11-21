@@ -1,3 +1,17 @@
+function extracted(bannerUrl) {
+    return new Promise((resolve, reject) => {
+        var image = new Image();
+        //image events
+        image.onload = function () {
+            resolve(bannerUrl)
+        }
+        image.onerror = function () {
+            reject(bannerUrl)
+        }
+        image.src = bannerUrl
+    })
+}
+
 window.addEventListener('load',function(){
 
     var bodyRef=document.querySelector("body");
@@ -14,24 +28,15 @@ window.addEventListener('load',function(){
 
        // bodyRef.innerHTML='<img src='+responseArr[0]+'>'
         var bannerUrl=responseArr[1];
-       return new Promise((resolve,reject)=>{
-           var image=new Image();
-           //image events
-           image.onload=function(){
-               resolve(bannerUrl)
-           }
-           image.onerror = function(){
-               reject(bannerUrl)
-           }
-           image.src = bannerUrl
-       })
+       return extracted(bannerUrl);
+
 
     })
         .then(function(innerResponse){
 
             console.log(innerResponse);
             var img=new Image();
-            img.src=innerResponse
+            img.src=innerResponse;
             bodyRef.appendChild(img);
 
 
