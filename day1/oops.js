@@ -81,7 +81,7 @@ class PlatinumMember extends Member{
 
 
     computeLoyaltyPoints() {
-        console.log("overridden");
+        super.computeLoyaltyPoints();
     }
 
     get discount() {
