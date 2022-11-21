@@ -18,10 +18,9 @@ export class App extends Component{
     render() {
         return (
             <div className="App-header">
-                <div>
+
                     <Logo/>
                     <h1>Video Streaming</h1>
-                </div>
 
             </div>
         );
