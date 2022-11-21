@@ -24,3 +24,16 @@ var loanFDSet=new Set([...loanSet,...fdSet])
 
 console.log("Loan and FD Set...........")
 loanFDSet.forEach(x=>console.log(x));
+
+
+//intersection
+
+var accountHolders=new Set(["Param","Vignesh","Ilakiya"]);
+var dematHolders=new Set(["Bala","Vignesh","Anitha"]);
+
+var commonCustomers=new Set([...accountHolders].filter(x=>dematHolders.has(x))
+);
+console.log("Common Customers...........")
+commonCustomers.forEach(x=>console.log(x));
+
+
