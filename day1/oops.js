@@ -18,6 +18,14 @@ console.log(customerObj)
 function Customer(customerId,name){
     this.customerId=customerId;
     this.name=name
+    //private variable
+    var active=true;
+    //getter method
+    this.getActive=function(){
+        return active;
+    }
+
+
 }
 //create member function or method for the class
 Customer.prototype.display=function(){
@@ -27,8 +35,7 @@ Customer.prototype.display=function(){
 var customer=new Customer(1,"Parameswari");
 //method invocation
 console.log(customer.display());
-
-
+console.log(customer.getActive())
 
 
 
