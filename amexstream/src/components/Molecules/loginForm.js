@@ -10,22 +10,21 @@ import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 
 import './loginForm.css';
+import {useNavigate} from "react-router";
 
 export const LoginForm = () => {
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
 
-
+    var navigate=useNavigate()
 
     const formik = useFormik({
         initialValues: {
             name: '',
-            email: '',
-            password: '',
-            date: null,
-            country: null,
-            accept: false
+
+            password: ''
+
         },
         validate: (data) => {
             let errors = {};
@@ -48,7 +47,9 @@ export const LoginForm = () => {
         onSubmit: (data) => {
             setFormData(data);
             setShowMessage(true);
-
+            setTimeout(()=>{
+                navigate("/home")
+            },2500);
             formik.resetForm();
 
         }
