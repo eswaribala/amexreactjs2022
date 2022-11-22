@@ -19,9 +19,9 @@ export class App extends Component{
         return (
             <div className="App-header">
 
-                    <Logo/>
-                    <h1>Video Streaming</h1>
-
+                <Logo/>
+                    <h1 className="multicolortext">Video Streaming</h1>
+                <Logo/>
             </div>
         );
 
