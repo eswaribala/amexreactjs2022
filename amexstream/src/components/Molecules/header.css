@@ -1,0 +1,22 @@
+
+.App-header {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    color: white;
+}
+
+
+
+
+.multicolortext {
+    margin-left: 30%;
+    margin-right: 20%;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: "Lucida Calligraphy"
+}
