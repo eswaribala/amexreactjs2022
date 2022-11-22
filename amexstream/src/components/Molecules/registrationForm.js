@@ -13,15 +13,18 @@ import {CountryService} from "../../services/countryService";
 import './registrationForm.css';
 //functional approach
 export const RegistrationForm = () => {
-    const [countries, setCountries] = useState([]);
+    //const [countries, setCountries] = useState([]);
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
-    const countryService = new CountryService();
+    //const countryService = new CountryService();
 //monitoring the state changes
+    /*
     useEffect(() => {
-        countryService.getCountries().then(data => setCountries(data));
+        countryService.getCountries().then(data => {
+            setCountries(data)
+        });
     }); // eslint-disable-line react-hooks/exhaustive-deps
-
+*/
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -128,12 +131,12 @@ export const RegistrationForm = () => {
                                 <label htmlFor="date">Birthday</label>
                             </span>
                         </div>
-                        <div className="field">
+                    {/*    <div className="field">
                             <span className="p-float-label">
                                 <Dropdown id="country" name="country" value={formik.values.country} onChange={formik.handleChange} options={countries} optionLabel="name" />
                                 <label htmlFor="country">Country</label>
                             </span>
-                        </div>
+                        </div>*/}
                         <div className="field-checkbox">
                             <Checkbox inputId="accept" name="accept" checked={formik.values.accept} onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid('accept') })} />
                             <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid('accept') })}>I agree to the terms and conditions*</label>

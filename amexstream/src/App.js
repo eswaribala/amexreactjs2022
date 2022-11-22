@@ -40,7 +40,7 @@ export function App() {
 export class App extends Component{
 
     constructor(props, context) {
-        console.log("Constructor.....")
+
         super(props, context);
         this.state={
             currentTime:new Date() //initial value
@@ -57,17 +57,14 @@ export class App extends Component{
     }
 
 
-    componentWillMount() {
-        console.log("Component will mount");
-    }
 
     componentDidMount() {
-        console.log("Component did mount")
+
         setInterval(this.tick,1000)
     }
 
     render() {
-        console.log("Component will render")
+
         return (
             <div>
             <LandingPage pick={this.state.currentTime}/>
