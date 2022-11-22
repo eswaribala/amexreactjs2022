@@ -24,7 +24,8 @@ export class App extends Component{
         console.log("Constructor.....")
         super(props, context);
         this.state={
-            currentTime:new Date() //initial value
+            currentTime:new Date(), //initial value
+            quote:"Trending Banker"
         }
     }
 
@@ -50,8 +51,8 @@ export class App extends Component{
         console.log("Component will render")
         return (
             <div>
-            <Header/>
-                <h4>{this.state.currentTime.toLocaleTimeString()}</h4>
+            <Header pick={this.state.quote}/>
+              {/*  <h4>{this.state.currentTime.toLocaleTimeString()}</h4>*/}
             </div>
         );
 
