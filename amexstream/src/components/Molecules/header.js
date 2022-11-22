@@ -9,7 +9,7 @@ const Header=(props)=>(
     <div className="App-header">
         <Logo/>
         <h1 className="multicolortext">Video Streaming</h1>
-        <h2>{props.pick}</h2>
+        <h2>{props.pick.toLocaleTimeString()}</h2>
         <Banner/>
     </div>
 )

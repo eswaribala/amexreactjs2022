@@ -51,7 +51,7 @@ export class App extends Component{
         console.log("Component will render")
         return (
             <div>
-            <Header pick={this.state.quote}/>
+            <Header pick={this.state.currentTime}/>
               {/*  <h4>{this.state.currentTime.toLocaleTimeString()}</h4>*/}
             </div>
         );
