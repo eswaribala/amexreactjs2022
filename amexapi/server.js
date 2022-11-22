@@ -9,8 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 require('./routes')(app);
-//const port = config.get('server.port');
-//const host = config.get('server.host');
+
 server=app.listen(4000, (err) => {
     if (err) {
         console.log(err);
