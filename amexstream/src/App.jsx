@@ -22,10 +22,12 @@ export function App() {
     useEffect(() => {
         let interval = setInterval(tick, 1000);
         setCurrentTime(interval);
-    }, []);
+        setCurrentTime(props);
+
+    }, [props]);
 
         return (
-        <Header {...currentTime}/>
+        <Header/>
     );
 }
 */
