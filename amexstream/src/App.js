@@ -70,11 +70,9 @@ export class App extends Component{
         return (
             <Router>
                 <Routes>
-                    <Route exact path="/" element={<LandingPage/>}/>
+                    <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
                     <Route path="/register" element={<RegistrationForm/>}/>
-
                     <Route path="/home" element={<HomePage/>}/>
-
 
                 </Routes>
             </Router>
