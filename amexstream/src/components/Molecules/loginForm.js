@@ -89,9 +89,9 @@ export const LoginForm = () => {
 
             <div className="flex justify-content-center">
                 <div className="card">
-                    <div>
-                    <h2 className="text-center">Login</h2>
-                    <a href="/register">Create Today</a>
+                    <div className="anchor">
+                    <p>Login</p>
+                    <a href="/register" >Create Today</a>
                     </div>
                     <form onSubmit={formik.handleSubmit} className="p-fluid">
                         <div className="field">

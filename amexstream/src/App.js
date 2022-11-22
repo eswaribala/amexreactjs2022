@@ -5,7 +5,8 @@ import {Routes} from "react-router";
 import LandingPage from "./components/Organisms/landingPage";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {HomePage} from "./components/Organisms/homePage";
-import {RegistrationForm} from "./components/Molecules/registrationForm";
+import RegistrationPage from "./components/Organisms/registrationPage";
+
 
 
 //functional approach
@@ -71,8 +72,8 @@ export class App extends Component{
             <Router>
                 <Routes>
                     <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
-                    <Route path="/register" element={<RegistrationForm/>}/>
-                    <Route path="/home" element={<HomePage/>}/>
+                    <Route path="/register" element={<RegistrationPage pick={this.state.currentTime}/>}/>
+                    <Route path="/home" element={<HomePage pick={this.state.currentTime}/>}/>
 
                 </Routes>
             </Router>

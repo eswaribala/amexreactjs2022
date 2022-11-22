@@ -1,14 +1,18 @@
 /* FormDemo.css */
 
-.anchor a{
-    text-decoration:none;
+.anchor{
+    display:flex;
+    flex-direction: row;
 
 }
+.anchor a{
 
+    color:white;
+}
 
 .form-demo .card {
-    width: 500px;
-    margin-left: 65%;
+    width: 700px;
+    margin-left: 50%;
     background-color: darkslateblue;
     font-size: x-large;
     color:white;
