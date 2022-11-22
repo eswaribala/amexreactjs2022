@@ -28,3 +28,8 @@
         min-width: 0;
     }
 }
+
+.p-button{
+     background-color: white;
+    color: blueviolet;
+}

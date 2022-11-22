@@ -104,7 +104,7 @@ export const LoginForm = () => {
 
 
 
-                        <Button type="submit" label="Submit" className="mt-2" />
+                        <Button type="submit" label="Submit" className="p-button-danger"/>
                     </form>
                 </div>
             </div>
