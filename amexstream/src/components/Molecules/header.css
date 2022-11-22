@@ -11,12 +11,13 @@
 
 h2{
     color: white;
+    margin-right: 2%;
 }
 
 
 .multicolortext {
     margin-left: 30%;
-    margin-right: 20%;
+    margin-right: 5%;
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
     color: transparent;

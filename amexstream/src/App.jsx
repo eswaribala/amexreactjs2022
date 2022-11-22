@@ -1,15 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
-import {Component} from "react";
+import {Component, useEffect, useState} from "react";
 import Logo from "./components/Atoms/logo";
 import Banner from "./components/Atoms/banner";
 import Header from "./components/Molecules/header";
 
 //functional approach
 /*
+var tick=()=>{
+    //updating the state
+    this.setState({
+        currentTime:new Date()
+    })}
+
 export function App() {
-    return (
-        <Header/>
+
+    // For storing the intervalID when we create it
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+// For starting the interval ->
+    useEffect(() => {
+        let interval = setInterval(tick, 1000);
+        setCurrentTime(interval);
+    }, []);
+
+        return (
+        <Header {...currentTime}/>
     );
 }
 */
@@ -24,8 +40,8 @@ export class App extends Component{
         console.log("Constructor.....")
         super(props, context);
         this.state={
-            currentTime:new Date(), //initial value
-            quote:"Trending Banker"
+            currentTime:new Date() //initial value
+
         }
     }
 
@@ -52,10 +68,11 @@ export class App extends Component{
         return (
             <div>
             <Header pick={this.state.currentTime}/>
-              {/*  <h4>{this.state.currentTime.toLocaleTimeString()}</h4>*/}
+
             </div>
         );
 
     }
 }
+
 
