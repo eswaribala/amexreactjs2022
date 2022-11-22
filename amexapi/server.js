@@ -7,9 +7,8 @@ const app=express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-app.get("/",function(req,res){
-    res.send("hi");
-})
+
+require('./routes')(app);
 //const port = config.get('server.port');
 //const host = config.get('server.host');
 server=app.listen(4000, (err) => {
