@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import {Component, useEffect, useState} from "react";
-import Logo from "./components/Atoms/logo";
-import Banner from "./components/Atoms/banner";
+import {Routes} from "react-router";
 import LandingPage from "./components/Organisms/landingPage";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import {HomePage} from "./components/Organisms/homePage";
+import {RegistrationForm} from "./components/Molecules/registrationForm";
 
 
 //functional approach
@@ -66,9 +68,16 @@ export class App extends Component{
     render() {
 
         return (
-            <div>
-            <LandingPage pick={this.state.currentTime}/>
-            </div>
+            <Router>
+                <Routes>
+                    <Route exact path="/" element={<LandingPage/>}/>
+                    <Route path="/register" element={<RegistrationForm/>}/>
+
+                    <Route path="/home" element={<HomePage/>}/>
+
+
+                </Routes>
+            </Router>
         );
 
     }
