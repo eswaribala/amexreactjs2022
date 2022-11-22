@@ -1,3 +1,3 @@
-exports.findAll=(req,res)=>{
+exports.home=(req,res)=>{
     res.send("Rocking with Rest API!")
 }
