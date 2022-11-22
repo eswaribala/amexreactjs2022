@@ -1,13 +1,20 @@
 /* FormDemo.css */
 
 .anchor{
-    display:flex;
-    flex-direction: row;
+    display:inline;
+
+
+}
+
+.anchor p{
+    display:inline;
+    float:left;
 
 }
 .anchor a{
-
+    padding:5%;
     color:white;
+    float:right;
 }
 
 .form-demo .card {
