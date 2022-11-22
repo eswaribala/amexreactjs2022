@@ -10,17 +10,17 @@ import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 import {CountryService} from "../../services/countryService";
-import './FormDemo.css';
+import './registrationForm.css';
 //functional approach
-export const FormikFormDemo = () => {
+export const RegistrationForm = () => {
     const [countries, setCountries] = useState([]);
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const countryService = new CountryService();
-
+//monitoring the state changes
     useEffect(() => {
-        countryservice.getCountries().then(data => setCountries(data));
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+        countryService.getCountries().then(data => setCountries(data));
+    }); // eslint-disable-line react-hooks/exhaustive-deps
 
     const formik = useFormik({
         initialValues: {

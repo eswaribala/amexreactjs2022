@@ -3,7 +3,8 @@ import './App.css';
 import {Component, useEffect, useState} from "react";
 import Logo from "./components/Atoms/logo";
 import Banner from "./components/Atoms/banner";
-import Header from "./components/Molecules/header";
+import LandingPage from "./components/Organisms/landingPage";
+
 
 //functional approach
 /*
@@ -69,8 +70,7 @@ export class App extends Component{
         console.log("Component will render")
         return (
             <div>
-            <Header pick={this.state.currentTime}/>
-
+            <LandingPage pick={this.state.currentTime}/>
             </div>
         );
 
