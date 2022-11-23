@@ -1,0 +1,53 @@
+//creating database
+use ecommercedb;
+--------------------------------------------------------------------
+//creating the collection
+db.createCollection( "products",
+   {
+      validator: { $or:
+         [
+            { productId: { $type: "number" } },
+	    { productName: { $type: "string" } },
+	    { dop: { $type: "date" } },
+	    { cost: { $type: "number" } },
+            { status: { $in: [ "Available", "Unavailable" ] } }
+         ]
+      }
+   });
+---------------------------------------------------------------------
+show collections;
+-----------------------------------------------------------------------
+//create document
+db.products.insert( { productId:1234,productName:"Laptop",dop:new Date(2018,3,3),cost: 78000, status: "Available" } );
+---------------------------------------------------------------------
+db.products.find();
+----------------------------------------------------------------
+db.products.findAndModify({
+    query: {productId: 1234 },
+    sort: {cost: 1 },
+    update: {$set:{status:"Unavailable"}},
+    upsert: true
+});
+-----------------------------------------------------------------
+db.products.update({productId:1234},{$set:{cost:80000}});
+-------------------------------------------------------------------
+//bulk insert
+db.products.insertMany([
+ { productId:1235,productName:"TV",dop:new Date(2018,5,31),cost: 178000, status: "Available" },
+    { productId:1236,productName:"Refrigerator",dop:new Date(2018,9,23),cost: 29000, status: "Available" },
+    { productId:1237,productName:"Table",dop:new Date(2020,11,3),cost: 8000, status: "Available" }
+]);
+----------------------------------------------------------------
+//count
+db.products.find( { status: "Available" } ).count();
+---------------------------------------------------------------
+//index
+db.products.createIndex({productName:1});
+-------------------------------------------------------------
+//show indexes
+db.products.getIndexes();
+--------------------------------------------------------------
+db.products.dropIndex( { "productName" : -1 } )
+--------------------------------------------------------------
+db.products.remove({productName : "Table"});
+-------------------------------------------------------------------
