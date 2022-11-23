@@ -17,7 +17,8 @@ export const LoginForm = () => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
 
-    var navigate=useNavigate()
+    const url='http://localhost:4000/api/users/auth'
+    var navigate=useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -46,10 +47,30 @@ export const LoginForm = () => {
         },
         onSubmit: (data) => {
             setFormData(data);
-            setShowMessage(true);
-            setTimeout(()=>{
-                navigate("/home")
-            },2500);
+            fetch(url,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(function(res){ return res.json(); })
+                .then(function(data){
+                    if(!data.message.includes("not")){
+                        setShowMessage(true);
+                        setTimeout(()=>{
+                            navigate("/home")
+                        },2500);
+                    }
+                    else
+                    {
+                        setTimeout(()=>{
+                            navigate("/")
+                        },2500);
+                    }
+                })
             formik.resetForm();
 
         }
