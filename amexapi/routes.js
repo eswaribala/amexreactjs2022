@@ -5,8 +5,8 @@ module.exports = app => {
     var router = require("express").Router();
 
 
-    // Retrieve all Tutorials
-    router.get("/", users.home);
 
+    router.get("/", users.home);
+    //custom route
     app.use("/api/users", router);
 }
