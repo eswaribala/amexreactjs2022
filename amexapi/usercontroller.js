@@ -40,7 +40,26 @@ exports.create = (req, res) => {
 
 
 
+exports.validateUser=(req,res)=>{
+    User.findOne({name: req.body.name}, function(error, foundUser) {
+        if(!error) {
+            if (foundUser) {
+                //----compare passwords-----//
+                if (foundUser.password==req.body.password){ //password matches
+                    res.send({"message":'user found'})
+                }else{
+                    res.send({"message":'user not found'})
 
+                }
+                //---end checking password compraison
+            } else {
+                res.send({"message":"you've not been registered yet"})
+            }
+        } else {
+            res.send(error);
+        }
+    })
+}
 
 
 

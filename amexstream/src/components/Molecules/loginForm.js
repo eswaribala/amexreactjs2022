@@ -111,7 +111,7 @@ export const LoginForm = () => {
                             {getFormErrorMessage('password')}
                         </div>
 
-                        <Button type="submit" label="Submit" className="mt-2" />
+                        <Button type="submit" label="Submit" className="p-button-success" />
                     </form>
                 </div>
             </div>
