@@ -16,6 +16,7 @@ export const LoginForm = () => {
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
+   window.sessionStorage.setItem("loggedIn",false);
     const toast = useRef(null);
     const url='http://localhost:4000/api/users/auth'
     var navigate=useNavigate();
@@ -59,6 +60,8 @@ export const LoginForm = () => {
                 .then(function(res){ return res.json(); })
                 .then(function(data){
                     if(!data.message.includes("not")){
+
+                        window.sessionStorage.setItem("loggedIn",true);
                         setShowMessage(true);
                       if(data.user.role === 'admin') {
                           setTimeout(() => {
