@@ -47,7 +47,7 @@ exports.validateUser=(req,res)=>{
             if (foundUser) {
                 //----compare passwords-----//
                 if (foundUser.password==req.body.password){ //password matches
-                    res.send({"message":'user found'})
+                    res.send({"message":'user found',"user":foundUser})
                 }else{
                     res.send({"message":'user not found'})
 

@@ -60,9 +60,17 @@ export const LoginForm = () => {
                 .then(function(data){
                     if(!data.message.includes("not")){
                         setShowMessage(true);
-                        setTimeout(()=>{
-                            navigate("/home")
-                        },2500);
+                      if(data.user.role === 'admin') {
+                          setTimeout(() => {
+                              navigate("/adminhome")
+                          }, 2500);
+                      }
+                      else
+                      {
+                          setTimeout(() => {
+                              navigate("/userhome")
+                          }, 2500);
+                      }
                     }
                     else
                     {

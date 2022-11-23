@@ -4,8 +4,9 @@ import {Component, useEffect, useState} from "react";
 import {Routes} from "react-router";
 import LandingPage from "./components/Organisms/landingPage";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import {HomePage} from "./components/Organisms/homePage";
+import {UserHomePage} from "./components/Organisms/userHomePage";
 import RegistrationPage from "./components/Organisms/registrationPage";
+import {AdminHomePage} from "./components/Organisms/adminHomePage";
 
 
 
@@ -73,8 +74,8 @@ export class App extends Component{
                 <Routes>
                     <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
                     <Route path="/register" element={<RegistrationPage pick={this.state.currentTime}/>}/>
-                    <Route path="/home" element={<HomePage pick={this.state.currentTime}/>}/>
-
+                    <Route path="/adminhome" element={<AdminHomePage pick={this.state.currentTime}/>}/>
+                    <Route path="/userhome" element={<UserHomePage pick={this.state.currentTime}/>}/>
                 </Routes>
             </Router>
         );
