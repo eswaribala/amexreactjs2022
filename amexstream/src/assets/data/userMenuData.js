@@ -10,7 +10,8 @@ export const items = [
         items:[
             {
                 label:'Upload Video',
-                icon:'pi pi-fw pi-align-left'
+                icon:'pi pi-fw pi-align-left',
+                command: () => { window.sessionStorage.setItem("upload","yes") }
             },
             {
                 label:'Get Karma Points',
