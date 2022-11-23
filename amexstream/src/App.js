@@ -77,15 +77,8 @@ export class App extends Component{
                     <Route path="/register" element={<RegistrationPage pick={this.state.currentTime}/>}/>
                     <Route path="/adminhome" element={<AdminHomePage pick={this.state.currentTime}/>}/>
                     <Route path="/userhome" element={<UserHomePage pick={this.state.currentTime}/>}/>
-{/*
-                    {loggedIn=="true"? (
-                        <>
-                            <Route path="/adminhome" element={<AdminHomePage pick={this.state.currentTime}/>}/>
-                            <Route path="/userhome" element={<UserHomePage pick={this.state.currentTime}/>}/>
-                        </>
-                    ) : (
-                        <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
-                    )}*/}
+
+
 
                 </Routes>
             </Router>

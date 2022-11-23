@@ -5,7 +5,7 @@ import Header from "../Molecules/header";
 import {LoginForm} from "../Molecules/loginForm";
 window.sessionStorage.setItem("loggedIn","false");
 const LandingPage=(props)=>{
-
+    window.sessionStorage.setItem("loggedIn","false");
     window.sessionStorage.setItem("upload","no");
     return(
         <div>

@@ -26,7 +26,7 @@ export const RegistrationForm = () => {
             setCountries(data)
         });
     }); // eslint-disable-line react-hooks/exhaustive-deps
-
+window.sessionStorage.setItem("loggedIn","false");
     const formik = useFormik({
         initialValues: {
             name: '',
