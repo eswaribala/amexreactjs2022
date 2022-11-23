@@ -61,7 +61,7 @@ export const LoginForm = () => {
                 .then(function(data){
                     if(!data.message.includes("not")){
 
-                        window.sessionStorage.setItem("loggedIn",true);
+                        window.sessionStorage.setItem("loggedIn","true");
                         setShowMessage(true);
                       if(data.user.role === 'admin') {
                           setTimeout(() => {

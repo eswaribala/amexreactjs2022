@@ -5,9 +5,13 @@ export const items = [
 
     },
     {
-        label:'Add Videos',
+        label:'Videos',
         icon:'pi pi-fw pi-pencil',
         items:[
+            {
+                label:'Upload Video',
+                icon:'pi pi-fw pi-align-left'
+            },
             {
                 label:'Get Karma Points',
                 icon:'pi pi-fw pi-align-left'
