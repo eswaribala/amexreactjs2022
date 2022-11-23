@@ -5,6 +5,7 @@ const express = require("express");
 app=express()
 
 const User = db.user;
+const File =db.file;
 //insert
 exports.create = (req, res) => {
     console.log(req.body);
@@ -64,11 +65,40 @@ exports.validateUser=(req,res)=>{
 
 
 
-exports.upload=(req,res)=>{
+exports.upload=(req,res,obj)=>{
+
+    //console.log(req.body);
+    //console.log(req.files);
+    //res.send({ message: "Successfully uploaded files" });
 
     console.log(req.body);
-    //console.log(req.files);
-    res.send({ message: "Successfully uploaded files" });
+    // Validate request
+    if (!req.body.fileName) {
+        res.status(400).send({ message: "Content can not be empty!" });
+        return;
+    }
+
+    // Create a File
+    const file = new File({
+        fileName: obj.fileName,
+        ext: obj.ext,
+        path: obj.path,
+        size:obj.size,
+
+    });
+
+
+    File
+        .save(file)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while creating the File."
+            });
+        });
 }
 
 exports.home=(req,res)=>{

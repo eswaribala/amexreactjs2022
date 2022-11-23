@@ -5,6 +5,7 @@ const host = config.get('mongoserver.url');
 const db = {};
 db.mongoose = mongoose;
 db.url = host;
-db.user = require("./models.js")(mongoose);
+db.user = require("./models/usermodel")(mongoose);
+db.file=require("./models/filemodel")(mongoose);
 //exporting db configuration
 module.exports = db;

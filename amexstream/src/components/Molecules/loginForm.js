@@ -140,7 +140,7 @@ export const LoginForm = () => {
                         <div className="field">
                             <span className="p-float-label">
                                 <Password id="password" name="password" value={formik.values.password} onChange={formik.handleChange} toggleMask
-                                          className={classNames({ 'p-invalid': isFormFieldValid('password') })} header={passwordHeader} footer={passwordFooter} />
+                                          className={classNames({ 'p-invalid': isFormFieldValid('password') })}  />
                                 <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid('password') })}>Password*</label>
                             </span>
                             {getFormErrorMessage('password')}
