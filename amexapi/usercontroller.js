@@ -64,7 +64,12 @@ exports.validateUser=(req,res)=>{
 
 
 
+exports.upload=(req,res)=>{
 
+    console.log(req.body);
+    //console.log(req.files);
+    res.send({ message: "Successfully uploaded files" });
+}
 
 exports.home=(req,res)=>{
     res.send("Rocking with Rest API!")

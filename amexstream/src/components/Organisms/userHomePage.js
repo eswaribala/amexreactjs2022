@@ -11,11 +11,10 @@ export const UserHomePage=(props)=>{
         <div className="videoStyle">
         <UserMenu/>
         {upload=="yes"? (
-            <>
                 <div className="uploadStyle">
                 <VideoUpload />
                 </div>
-            </>
+
         ):""}
         </div>
     </div>
