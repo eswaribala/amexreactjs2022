@@ -18,7 +18,7 @@ export const RegistrationForm = () => {
     const [formData, setFormData] = useState({});
     const countryService = new CountryService();
 //monitoring the state changes
-
+    const url='http://localhost:4000/api/users'
     useEffect(() => {
         countryService.getCountries().then(data => {
             setCountries(data)
@@ -61,7 +61,23 @@ export const RegistrationForm = () => {
         onSubmit: (data) => {
             setFormData(data);
             setShowMessage(true);
-
+            console.log(JSON.stringify(data));
+            fetch(url,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(function(res){ return res.json(); })
+                .then(function(data){
+                    setShowMessage(true);
+                    setTimeout(()=>{
+                        navigate("/")
+                    },2500)
+                })
             formik.resetForm();
         }
     });
