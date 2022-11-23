@@ -65,12 +65,12 @@ exports.validateUser=(req,res)=>{
 
 
 
-exports.upload=(req,res,obj)=>{
+exports.upload=(req,res)=>{
 
-    //console.log(req.body);
+    console.log(req.body);
     //console.log(req.files);
-    //res.send({ message: "Successfully uploaded files" });
-
+    res.send({ message: "Successfully uploaded files" });
+/*
     console.log(req.body);
     // Validate request
     if (!req.body.fileName) {
@@ -99,6 +99,8 @@ exports.upload=(req,res,obj)=>{
                     err.message || "Some error occurred while creating the File."
             });
         });
+
+ */
 }
 
 exports.home=(req,res)=>{

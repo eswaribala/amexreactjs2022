@@ -28,11 +28,15 @@ module.exports = app => {
             cb(new Error("Not a Video File!!"), false);
         }
     };
+    //customizing storage and filter
     const upload = multer({
         storage: multerStorage,
         fileFilter: multerFilter,
     });
     var type = upload.single('amexvideo');
+
+
+
 
     router.post("/",users.create);
     router.post("/auth",users.validateUser)
