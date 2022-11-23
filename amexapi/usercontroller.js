@@ -21,7 +21,8 @@ exports.create = (req, res) => {
         email: req.body.email,
         date:req.body.date,
         country:req.body.country,
-        accept:req.body.accept
+        accept:req.body.accept,
+        role: "user"
     });
 
 

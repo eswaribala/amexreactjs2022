@@ -34,7 +34,8 @@ export const RegistrationForm = () => {
             password: '',
             date: null,
             country: null,
-            accept: false
+            accept: false,
+            role:''
         },
         validate: (data) => {
             let errors = {};

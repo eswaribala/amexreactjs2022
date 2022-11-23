@@ -67,7 +67,7 @@ export const LoginForm = () => {
                     else
                     {
                         toast.current.show({severity:'error', summary: 'User Name or Password incorrect',
-                            detail:'Try Again', life: 3000});
+                            detail:'Try Again', life: 2000});
                         setTimeout(()=>{
                             navigate("/")
                         },2500);

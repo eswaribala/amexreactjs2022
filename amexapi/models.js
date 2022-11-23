@@ -6,7 +6,8 @@ module.exports = mongoose => {
             password:String,
             date:String,
             country: Object,
-            accept: Boolean
+            accept: Boolean,
+            role: String
         },
         { timestamps: true }
     );
