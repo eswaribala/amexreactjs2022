@@ -5,7 +5,7 @@ module.exports = app => {
     var router = require("express").Router();
 
 
-
+    router.post("/",users.create)
     router.get("/", users.home);
     //custom route
     app.use("/api/users", router);
