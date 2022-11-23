@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {useRef, useState} from 'react';
 import { useFormik } from 'formik';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -11,12 +11,12 @@ import { classNames } from 'primereact/utils';
 
 import './loginForm.css';
 import {useNavigate} from "react-router";
-
+import { Toast } from 'primereact/toast';
 export const LoginForm = () => {
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
-
+    const toast = useRef(null);
     const url='http://localhost:4000/api/users/auth'
     var navigate=useNavigate();
 
@@ -66,6 +66,8 @@ export const LoginForm = () => {
                     }
                     else
                     {
+                        toast.current.show({severity:'error', summary: 'User Name or Password incorrect',
+                            detail:'Try Again', life: 3000});
                         setTimeout(()=>{
                             navigate("/")
                         },2500);
@@ -98,6 +100,7 @@ export const LoginForm = () => {
 
     return (
         <div className="form-demo">
+            <Toast ref={toast}></Toast>
             <Dialog visible={showMessage}  onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
                 <div className="flex align-items-center flex-column pt-6 px-3">
                     <i className="pi pi-check-circle" style={{ fontSize: '5rem', color: 'var(--green-500)' }}></i>
