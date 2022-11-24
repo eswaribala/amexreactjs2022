@@ -5,6 +5,10 @@ pipeline{
     maven 'maven'
   }
   stages{
+              stage('Prepare') {
+                  bat "npm install -g yarn"
+                  bat "yarn install"
+              }
         stage('Test and coverage'){
                       steps{
                           script{
