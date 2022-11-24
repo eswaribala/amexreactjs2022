@@ -1,13 +1,32 @@
-.form{
-    width:25%;
-    margin-left: 30%;
-    margin-top: 3%;
-    background-color: #9b92e4;
-    font-size: large;
-    color:#77170a;
+
+.form-demo .card {
+    width: 500px;
+    margin-left: 35%;
+    margin-top: -20%;
+    background-color: darkslateblue;
+    font-size: x-large;
+    color:white;
 
 }
 
+
+.form-demo .card form {
+    margin-top: 2rem;
+}
+.form-demo .card .field {
+    margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 960px) {
+    .form-demo .card {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 640px) {
+    .form-demo .card {
+        width: 100%;
+        min-width: 0;
+    }
+}
 legend{
     text-align: center;
     color: #77170a;

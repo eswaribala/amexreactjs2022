@@ -12,10 +12,11 @@ export default function ChannelCreate(props){
     const { channelName: propsChannelName, karmaPoints:propsKarmaPoints, description: propsDescription,
         active:propsActive } = props;
     //define fields
-    const [channelName, setChannelName] = useState( propsChannelName,"");
-    const [karmaPoints, setKarmaPoints] = useState( propsKarmaPoints,0);
-    const [description, setDescription] = useState( propsDescription,'');
-    const [active, setActive] = useState( propsActive,false);
+
+    const [channelName, setChannelName] = useState( "");
+    const [karmaPoints, setKarmaPoints] = useState( 0);
+    const [description, setDescription] = useState( '');
+    const [active, setActive] = useState( false);
 
     const [inputs, setInputs]= useState({});
     const [errors, setErrors] = useState({
@@ -25,7 +26,7 @@ export default function ChannelCreate(props){
         active:false
     });
 
-    const [isAddDisabled, setIsAddDisabled] = useState(false);
+    const [isAddDisabled, setIsAddDisabled] = React.useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     //STEP1
@@ -36,10 +37,12 @@ export default function ChannelCreate(props){
     const handleOnChange=(event)=>{
         const name=event.target.name;
         const value=event.target.value;
-        //console.log(name,value)
-        setInputs(values=>({...values,[name]:value}))
+        console.log(name,value)
+       setInputs(values=>({...values,[name]:value}))
+        console.log(inputs)
         if((inputs.channelName.length>0)&&(inputs.description.length>5))
             setIsAddDisabled(true);
+
     };
 
     const handleSubmit=(event)=> {
@@ -77,58 +80,67 @@ export default function ChannelCreate(props){
 
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}  className="form border border-primary shadow-none p-3 rounded">
+        <div className="form-demo">
+            <div className="flex justify-content-center">
+                <div className="card">
+            <form onSubmit={handleSubmit}   className="p-fluid">
                 <fieldset>
                     <legend>Add Channel</legend>
-                    <span className="mt-5">
+                    <div className="field">
+
                     <label htmlFor="channelName" className="form-label">Channel Name</label>
                  <InputText  name="channelName" type="text"  value={channelName}
                              className="form-control"
                              onChange={handleOnChange}/>
+
                         {errors.channelName &&
                         <div style={{ color: "red", paddingBottom: 10 }}>
                             {errors.channelName}</div>
                         }
 
-                </span>
-                    <span className="mt-5">
+                </div>
+                    <div className="field">
+
                     <label htmlFor="karmaPoints" className="form-label">Karma Points</label>
                     <InputText  name="karmaPoints"  type="number" value={karmaPoints}
                                 className="form-control"
-                                onChange={handleOnChange}/>
+                                onChange={handleOnChange} />
+
                         {errors.karmaPoints &&
                         <div style={{ color: "red", paddingBottom: 10 }}>
                             {errors.karmaPoints}</div>
                         }
-                </span>
-                    <span className="mt-5">
+                </div>
+                    <div className="field">
+
                          <label htmlFor="description" className="form-label">Description</label>
                           <InputText  name="description" type="text"  value={description}
                                       className="form-control"
                                       onChange={handleOnChange}/>
+
                         {errors.description &&
                         <div style={{ color: "red", paddingBottom: 10 }}>
                             {errors.description}</div>
                         }
-                </span>
-                    <span className="mt-5">
+                </div>
+                    <div className="field">
+
                     <label htmlFor="active" className="form-label">Active</label>
-                         <Checkbox inputId="accept" name="accept"
-                                    onChange={handleOnChange}
-                                   />
+                        <Checkbox inputId="active" name="active" value={active} onChange={handleOnChange} ></Checkbox>
+
 
                           {errors.active &&
                         <div style={{ color: "red", paddingBottom: 10 }}>
                             {errors.active}</div>
                         }
-                </span>
+                </div>
 
                     <Button label="Submit" className="mt-3 form-control" aria-label="Submit"
                             type="submit" disabled={!isAddDisabled} />
                 </fieldset>
             </form>
-
+                </div>
+            </div>
         </div>
     )
 
