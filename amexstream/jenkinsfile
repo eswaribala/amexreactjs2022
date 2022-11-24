@@ -9,10 +9,10 @@ pipeline{
                       steps{
                           script{
                                  try{
-                                      sh "yarn --version"
-                                      sh "npm config set legacy-peer-deps true"
-                                      sh "npm install"
-                                      sh "npm test --coverage --watchAll false"
+                                      bat "yarn --version"
+                                      bat "npm config set legacy-peer-deps true"
+                                      bat "npm install"
+                                   //   sh "npm test --coverage --watchAll false"
                                  }
                                  catch(all){
                                       echo "Test stage Failed"
@@ -27,7 +27,7 @@ pipeline{
                     steps{
                         script{
                                try{
-                                    sh "npm run build"
+                                    bat "npm run build"
                                }
                                catch(all){
                                     echo "Build stage Failed"
