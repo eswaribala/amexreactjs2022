@@ -7,6 +7,7 @@ app=express()
 
 const User = db.user;
 const File =db.file;
+const Channel=db.channel;
 //insert
 exports.create = (req, res) => {
     console.log(req.body);
@@ -151,3 +152,36 @@ exports.videobyid=(req,res)=>{
         }
     })
 }
+
+
+//
+exports.channelCreate = (req, res) => {
+    console.log(req.body);
+    // Validate request
+    if (!req.body.channelName) {
+        res.status(400).send({ message: "Content can not be empty!" });
+        return;
+    }
+
+    // Create a Channel
+    const channel = new Channel({
+        channelName: req.body.channelName,
+        karmaPoints: req.body.karmaPoints,
+        description: req.body.description,
+        active:req.body.active,
+
+    });
+
+
+    channel
+        .save(channel)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while creating the Customer."
+            });
+        });
+};
