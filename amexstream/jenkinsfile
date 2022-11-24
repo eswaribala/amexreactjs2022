@@ -17,7 +17,7 @@ pipeline{
                                  catch(all){
                                       echo "Test stage Failed"
                                      // sh "aws sns publish --region=${AWS_REGION} --topic-arn arn:aws:sns:us-east-1:194745857795:EmailNotifier --message 'client react app: Test and Coverage Failed and pipeline is stopped'"
-                                      exit 1
+                                      //exit 1
                                  }
                           }
                      }
@@ -32,12 +32,12 @@ pipeline{
                                catch(all){
                                     echo "Build stage Failed"
                                  //   sh "aws sns publish --region=${AWS_REGION} --topic-arn arn:aws:sns:us-east-1:194745857795:EmailNotifier --message 'client react app: Build Failed and pipeline is stopped'"
-                                    exit 1
+                                    //exit 1
                                }
                         }
                     }
         }
-        stage('SonarQube Report'){
+        /* stage('SonarQube Report'){
                     steps{
                       script{
                         try{
@@ -50,7 +50,7 @@ pipeline{
                         }
                       }
                     }
-        }
+        } */
         /* stage('Deploy to AWS S3'){
                     steps {
                     withAWS(region:'us-east-1',credentials:'s3-credentials') {
