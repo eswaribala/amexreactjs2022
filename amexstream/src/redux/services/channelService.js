@@ -9,7 +9,7 @@ const create = data => {
         body: JSON.stringify(data)
     })
         .then((response) => response.json())
-        .then((data) =>data)
+        .then((d) =>d)
 };
 
 const ChannelService = {

@@ -65,10 +65,10 @@ export default function ChannelCreate(props){
             dispatch(createChannel(inputs))
                 .then(data => {
                     console.log(data);
-                    setChannelName("")
-                    setKarmaPoints(0)
-                    setDescription("")
-                    setActive(false)
+                    //setChannelName("")
+                    //setKarmaPoints(0)
+                   // setDescription("")
+                   // setActive(false)
 
                 })
                 .catch(e => {

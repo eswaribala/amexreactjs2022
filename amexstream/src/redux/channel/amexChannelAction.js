@@ -65,10 +65,10 @@ export const createChannel = (values) => async (dispatch) => {
 
         dispatch({
             type: CREATE_CHANNEL,
-            payload: res.data,
+            payload: res,
         });
 
-        return Promise.resolve(res.data);
+        return Promise.resolve(res);
     } catch (err) {
         return Promise.reject(err);
     }
