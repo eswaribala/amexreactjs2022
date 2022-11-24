@@ -13,10 +13,10 @@ export default function ChannelCreate(props){
         active:propsActive } = props;
     //define fields
 
-    const [channelName, setChannelName] = useState( "");
-    const [karmaPoints, setKarmaPoints] = useState( 0);
-    const [description, setDescription] = useState( '');
-    const [active, setActive] = useState( false);
+    const [channelName, setChannelName] = useState(propsChannelName, "");
+    const [karmaPoints, setKarmaPoints] = useState(propsKarmaPoints, 0);
+    const [description, setDescription] = useState(propsDescription, '');
+    const [active, setActive] = useState( propsActive,false);
 
     const [inputs, setInputs]= useState({});
     const [errors, setErrors] = useState({
@@ -40,7 +40,7 @@ export default function ChannelCreate(props){
         console.log(name,value)
        setInputs(values=>({...values,[name]:value}))
         console.log(inputs)
-        if((inputs.channelName.length>0)&&(inputs.description.length>5))
+        if((inputs.channelName?.length>0)&&(inputs.description?.length>5))
             setIsAddDisabled(true);
 
     };
@@ -89,7 +89,7 @@ export default function ChannelCreate(props){
                     <div className="field">
 
                     <label htmlFor="channelName" className="form-label">Channel Name</label>
-                 <InputText  name="channelName" type="text"  value={channelName}
+                 <InputText  id="channelName"  name="channelName" type="text"  value={channelName}
                              className="form-control"
                              onChange={handleOnChange}/>
 
@@ -102,7 +102,7 @@ export default function ChannelCreate(props){
                     <div className="field">
 
                     <label htmlFor="karmaPoints" className="form-label">Karma Points</label>
-                    <InputText  name="karmaPoints"  type="number" value={karmaPoints}
+                    <InputText  id="karmaPoints" name="karmaPoints"  type="number" value={karmaPoints}
                                 className="form-control"
                                 onChange={handleOnChange} />
 
@@ -114,7 +114,7 @@ export default function ChannelCreate(props){
                     <div className="field">
 
                          <label htmlFor="description" className="form-label">Description</label>
-                          <InputText  name="description" type="text"  value={description}
+                          <InputText id="description"  name="description" type="text"  value={description}
                                       className="form-control"
                                       onChange={handleOnChange}/>
 
@@ -126,7 +126,7 @@ export default function ChannelCreate(props){
                     <div className="field">
 
                     <label htmlFor="active" className="form-label">Active</label>
-                        <Checkbox inputId="active" name="active" value={active} onChange={handleOnChange} ></Checkbox>
+                        <Checkbox id="active" inputId="active" name="active" value={active} onChange={handleOnChange} ></Checkbox>
 
 
                           {errors.active &&
