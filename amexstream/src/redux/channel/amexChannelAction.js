@@ -21,6 +21,9 @@ export const fetchChannels = () => {
                     }, 2000)
             }
             )
+            .catch(error => {
+                dispatch(fetchChannelsFailure(error.message))
+            })
         /*
         axios
             .get('http://localhost:4000/channels')

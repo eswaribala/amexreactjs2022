@@ -16,6 +16,7 @@ import {AdminMenu} from "./components/Molecules/adminMenu";
 import ChannelCreate from "./components/Molecules/channelcreate";
 import store from "./redux/store";
 import {Provider} from "react-redux";
+import {ChannelsContainer} from "./components/Molecules/channelContainer";
 
 
 
@@ -120,7 +121,7 @@ export class App extends Component{
                         <Route exact path="/videoupload" element={<ProtectedRoute><VideoUpload/>}></ProtectedRoute>}/>
                        <Route exact path="/videodownload" element={<ProtectedRoute><VideoDownload/>}></ProtectedRoute>}/>
                         <Route exact path="/channelcreate" element={<ProtectedRoute><ChannelCreate/>}></ProtectedRoute>}/>
-
+                        <Route exact path="/channelview" element={<ProtectedRoute><ChannelsContainer/>}></ProtectedRoute>}/>
                 </Routes>
 
                 }

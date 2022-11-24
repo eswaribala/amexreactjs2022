@@ -1,9 +1,23 @@
 export const items = [
     {
-        label:'Create Channel',
+        label:'Channel',
         icon:'pi pi-fw pi-file',
-        command: () => { window.location.href = "/channelcreate" }
+
+        items:[
+            {
+                label:'Create Channel',
+                icon:'pi pi-fw pi-align-left',
+                command: () => { window.location.href = "/channelcreate" },
+            },
+            {
+                label:'View Channels',
+                icon:'pi pi-fw pi-align-left',
+                command: () => { window.location.href = "/channelview" },
+            }
+
+        ]
     },
+
     {
         label:'Videos',
         icon:'pi pi-fw pi-pencil',

@@ -185,3 +185,18 @@ exports.channelCreate = (req, res) => {
             });
         });
 };
+exports.channels=(req,res)=>{
+
+
+
+    Channel.find()
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+}
