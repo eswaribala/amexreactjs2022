@@ -4,6 +4,23 @@ import {CREATE_CHANNEL} from "./types";
 export const fetchChannels = () => {
     return (dispatch) => {
         dispatch(fetchChannelsRequest())
+        fetch("http://localhost:4000/api/users/channels",
+            {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res=>res.json())
+            .then(d=>{
+
+                    const channels = d
+                    setTimeout(() => {  // to emulate some network delay
+                        dispatch(fetchChannelsSuccess(channels))
+                    }, 2000)
+            }
+            )
         /*
         axios
             .get('http://localhost:4000/channels')

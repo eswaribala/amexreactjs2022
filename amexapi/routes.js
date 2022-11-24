@@ -39,7 +39,7 @@ module.exports = app => {
     router.post("/upload",type,users.upload)
     router.get("/videos", users.videos);
     router.post("/videosbyid", users.videobyid);
-    router.post("/channels",type,users.channelCreate)
+    router.post("/channels",users.channelCreate)
     //custom route
     app.use("/api/users", router);
 }
