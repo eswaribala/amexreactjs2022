@@ -17,14 +17,14 @@ export default function ChannelCreate(props){
     const [channelName, setChannelName] = useState(propsChannelName, "");
     const [karmaPoints, setKarmaPoints] = useState(propsKarmaPoints, 0);
     const [description, setDescription] = useState(propsDescription, '');
-    const [active, setActive] = useState( propsActive,false);
+    const [active, setActive] = useState( propsActive,"");
 
     const [inputs, setInputs]= useState({});
     const [errors, setErrors] = useState({
         channelName: "",
         karmaPoints: 0,
         description:"",
-        active:false
+        active:""
     });
 
     const [isAddDisabled, setIsAddDisabled] = React.useState(false);
@@ -65,10 +65,7 @@ export default function ChannelCreate(props){
             dispatch(createChannel(inputs))
                 .then(data => {
                     console.log(data);
-                    //setChannelName("")
-                    //setKarmaPoints(0)
-                   // setDescription("")
-                   // setActive(false)
+
 
                 })
                 .catch(e => {
@@ -82,9 +79,10 @@ export default function ChannelCreate(props){
 
 
     return(
-        <div className="form-demo">
+        <div id="channelform">
             <div className="flex justify-content-center">
                 <div className="card">
+
             <form onSubmit={handleSubmit}   className="p-fluid">
                 <fieldset>
                     <legend>Add Channel</legend>
@@ -94,9 +92,6 @@ export default function ChannelCreate(props){
                  <InputText  id="channelName"  name="channelName" type="text"  value={channelName}
                              className="form-control"
                              onChange={handleOnChange}/>
-
-
-
                 </div>
                     <div className="field">
 
@@ -119,13 +114,16 @@ export default function ChannelCreate(props){
                     <div className="field">
 
                     <label htmlFor="active" className="form-label">Active</label>
-                        <Checkbox id="active" inputId="active" name="active" value={active} onChange={handleOnChange} ></Checkbox>
+                        <InputText id="active"  name="active" type="text"  value={active}
+                                   className="form-control"
+                                   onChange={handleOnChange}/>
 
 
 
-                </div>
 
-                    <Button label="Submit" className="mt-3 form-control" aria-label="Submit"
+                    </div>
+
+                    <Button label="Submit" className="p-button-success"  aria-label="Submit"
                             type="submit" disabled={!isAddDisabled} />
                 </fieldset>
             </form>

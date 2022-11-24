@@ -4,7 +4,7 @@ module.exports = mongoose => {
             channelName: String,
             karmaPoints:Number,
             description: String,
-            active: Boolean
+            active: String
         },
         { timestamps: true }
     );
