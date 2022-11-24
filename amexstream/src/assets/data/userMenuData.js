@@ -2,7 +2,7 @@ export const items = [
     {
         label:'Create Channel',
         icon:'pi pi-fw pi-file',
-
+        command: () => { window.location.href = "/channelcreate" }
     },
     {
         label:'Videos',

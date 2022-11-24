@@ -13,6 +13,7 @@ import {UserMenu} from "./components/Molecules/userMenu";
 import Header from "./components/Molecules/header";
 import ProtectedRoute from "./components/Organisms/ProtectedRoute";
 import {AdminMenu} from "./components/Molecules/adminMenu";
+import ChannelCreate from "./components/Molecules/channelcreate";
 
 
 
@@ -113,8 +114,8 @@ export class App extends Component{
                     <Route exact path="/adminhome" element= {<ProtectedRoute><AdminHomePage  pick={this.state.currentTime}/></ProtectedRoute>}/>
                         <Route exact path="/userhome" element={<ProtectedRoute><UserHomePage pick={this.state.currentTime}/>}></ProtectedRoute>}/>
                         <Route exact path="/videoupload" element={<ProtectedRoute><VideoUpload/>}></ProtectedRoute>}/>
-                       <Route exact path="videodownload" element={<ProtectedRoute><VideoDownload/>}></ProtectedRoute>}/>
-
+                       <Route exact path="/videodownload" element={<ProtectedRoute><VideoDownload/>}></ProtectedRoute>}/>
+                        <Route exact path="/channelcreate" element={<ProtectedRoute><ChannelCreate/>}></ProtectedRoute>}/>
 
                 </Routes>
 

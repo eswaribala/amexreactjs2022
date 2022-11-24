@@ -1,10 +1,12 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import InputText from "primereact/primereact.all.esm";
-import Checkbox from "primereact/primereact.all.esm";
-import {classNames} from "primereact/utils";
-
+import { InputText } from 'primereact/inputtext';
+import {Checkbox} from "primereact/checkbox";
+import {Button} from "primereact/button";
+import { classNames } from 'primereact/utils';
+import './channelcreate.css'
+import validate from "./channelCreateValidator";
 //react hook version 16.8
 export default function ChannelCreate(props){
     const { channelName: propsChannelName, karmaPoints:propsKarmaPoints, description: propsDescription,
@@ -114,7 +116,7 @@ export default function ChannelCreate(props){
                     <label htmlFor="active" className="form-label">Active</label>
                          <Checkbox inputId="accept" name="accept"
                                     onChange={handleOnChange}
-                                   className={classNames({ 'p-invalid': isFormFieldValid('accept') })} />
+                                   />
 
                           {errors.active &&
                         <div style={{ color: "red", paddingBottom: 10 }}>
