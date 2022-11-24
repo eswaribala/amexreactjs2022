@@ -16,7 +16,8 @@ export const LoginForm = () => {
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
-   window.sessionStorage.setItem("loggedIn",false);
+   window.localStorage.setItem("loggedIn","false");
+
     const toast = useRef(null);
     const url='http://localhost:4000/api/users/auth'
     var navigate=useNavigate();
@@ -61,16 +62,23 @@ export const LoginForm = () => {
                 .then(function(data){
                     if(!data.message.includes("not")){
 
-                        window.sessionStorage.setItem("loggedIn","true");
+
                         setShowMessage(true);
                       if(data.user.role === 'admin') {
+                          window.localStorage.setItem("adminLoggedIn","true")
                           setTimeout(() => {
+                              window.localStorage.setItem("loggedIn","true");
+                              window.localStorage.setItem("userLoggedIn","false");
+                            //  window.localStorage.setItem("userLoggedIn","false");
                               navigate("/adminhome")
                           }, 2500);
                       }
                       else
                       {
+                          ;
                           setTimeout(() => {
+                              window.localStorage.setItem("loggedIn","true");
+                              window.localStorage.setItem("userLoggedIn","true");
                               navigate("/userhome")
                           }, 2500);
                       }

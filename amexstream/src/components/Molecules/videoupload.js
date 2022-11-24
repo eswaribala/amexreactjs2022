@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Toast } from 'primereact/toast';
 import { FileUpload } from 'primereact/fileupload';
 import { Tooltip } from 'primereact/tooltip';
-
+import './videoupload.css'
 
 export const VideoUpload = () => {
     const [totalSize, setTotalSize] = useState(0);
@@ -22,7 +22,7 @@ export const VideoUpload = () => {
             <Tooltip target=".custom-cancel-btn" content="Clear" position="bottom" />
 
             <div className="card">
-                <h5>Advanced</h5>
+
                 <FileUpload name="amexvideo" url={url} onUpload={onUpload} multiple accept="image/*" maxFileSize={1000000000}
                            />
             </div>

@@ -2,6 +2,7 @@ const db = require("./dbserver");
 const fs = require("fs");
 //const app = require("express");
 const express = require("express");
+const path = require("path");
 app=express()
 
 const User = db.user;
@@ -67,29 +68,33 @@ exports.validateUser=(req,res)=>{
 
 exports.upload=(req,res)=>{
 
-    console.log(req.body);
-    //console.log(req.files);
-    res.send({ message: "Successfully uploaded files" });
-/*
-    console.log(req.body);
+    //console.log(req.body);
+    var file_name=req.file.filename;
+    var file_path=req.file.path;
+    var file_size=req.file.size;
+    var file_ext=req.file.ext;
+
+    console.log(req.file)
+    //res.send({ message: "Successfully uploaded files" });
+
+
     // Validate request
-    if (!req.body.fileName) {
+    if (!req.file.filename) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
 
     // Create a File
     const file = new File({
-        fileName: obj.fileName,
-        ext: obj.ext,
-        path: obj.path,
-        size:obj.size,
+        fileName: req.file.filename,
+        ext: req.file.mimetype,
+        path: req.file.path,
+        size:req.file.size
 
     });
 
 
-    File
-        .save(file)
+    file.save(file)
         .then(data => {
             res.send(data);
         })
@@ -100,9 +105,49 @@ exports.upload=(req,res)=>{
             });
         });
 
- */
+
 }
 
-exports.home=(req,res)=>{
-    res.send("Rocking with Rest API!")
+exports.videos=(req,res)=>{
+    const id = req.query.id;
+
+
+    File.find()
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+}
+
+exports.videobyid=(req,res)=>{
+    File.findOne({name: req.body.fileName}, function(error, foundFile) {
+        var options = {
+            root: path.join("./public")
+        };
+        if(!error) {
+            if (foundFile) {
+               // res.sendFile(foundFile, { root:  "./public"});
+                 //   res.send({"message":'file found',"user":foundFile})
+                /*res.sendFile(req.body.fileName, options, function (err) {
+                    if (err) {
+                        next(err);
+                    } else {
+                        console.log('Sent:', req.body.fileName);
+                    }
+                });*/
+
+                res.download("./public/"+req.body.fileName);
+
+            } else {
+                res.send({"message":"not found"})
+            }
+        } else {
+            res.send(error);
+        }
+    })
 }

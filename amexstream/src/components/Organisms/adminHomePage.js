@@ -2,9 +2,12 @@ import React, {Component} from "react";
 import Header from "../Molecules/header";
 import {AdminMenu} from "../Molecules/adminMenu";
 
-export const AdminHomePage=(props)=>(
+export const AdminHomePage=(props)=>{
+    window.localStorage.setItem("adminLoggedIn","true")
+
+    return(
     <div>
-        <Header pick={props.pick}/>
-        <AdminMenu/>
+
+
     </div>
-)
+)}

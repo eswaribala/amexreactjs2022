@@ -4,18 +4,12 @@ import {UserMenu} from "../Molecules/userMenu";
 import {VideoUpload} from "../Molecules/videoupload";
 import './userHomePage.css'
 export const UserHomePage=(props)=>{
-  const upload=window.sessionStorage.getItem("upload");
+    window.localStorage.setItem("loggedIn","true");
+
+    const loggedIn=window.localStorage.getItem("loggedIn");
     return(
     <div>
-        <Header pick={props.pick}/>
-        <div className="videoStyle">
-        <UserMenu/>
-        {upload=="yes"? (
-                <div className="uploadStyle">
-                <VideoUpload />
-                </div>
 
-        ):""}
-        </div>
+
     </div>
 )}

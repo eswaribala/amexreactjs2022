@@ -34,14 +34,11 @@ module.exports = app => {
         fileFilter: multerFilter,
     });
     var type = upload.single('amexvideo');
-
-
-
-
     router.post("/",users.create);
     router.post("/auth",users.validateUser)
     router.post("/upload",type,users.upload)
-    router.get("/", users.home);
+    router.get("/videos", users.videos);
+    router.post("/videosbyid", users.videobyid);
     //custom route
     app.use("/api/users", router);
 }

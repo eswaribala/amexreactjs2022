@@ -11,7 +11,7 @@ export const items = [
             {
                 label:'Upload Video',
                 icon:'pi pi-fw pi-align-left',
-                command: () => { window.sessionStorage.setItem("upload","yes") }
+                command: () => { window.location.href = "/videoupload" }
             },
             {
                 label:'Get Karma Points',
@@ -22,7 +22,8 @@ export const items = [
     },
     {
         label:'Search Videos',
-        icon:'pi pi-fw pi-user'
+        icon:'pi pi-fw pi-user',
+        command: () => { window.location.href = "/videodownload" }
     },
     {
         label:'View History',
@@ -39,6 +40,10 @@ export const items = [
     {
         label:'Quit',
         icon:'pi pi-fw pi-power-off',
-        command: () => { window.location.href = "/" }
+        command: () => {
+            window.localStorage.setItem("loggedIn","false")
+            window.localStorage.setItem("userLoggedIn","false")
+            window.location.href = "/"
+        }
     }
 ];

@@ -1,12 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import {Component, useEffect, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import {Routes} from "react-router";
 import LandingPage from "./components/Organisms/landingPage";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter, BrowserRouter as Router, Route} from "react-router-dom";
 import {UserHomePage} from "./components/Organisms/userHomePage";
 import RegistrationPage from "./components/Organisms/registrationPage";
 import {AdminHomePage} from "./components/Organisms/adminHomePage";
+import {VideoUpload} from "./components/Molecules/videoupload";
+import {VideoDownload} from "./components/Molecules/videodownload";
+import {UserMenu} from "./components/Molecules/userMenu";
+import Header from "./components/Molecules/header";
+import ProtectedRoute from "./components/Organisms/ProtectedRoute";
+import {AdminMenu} from "./components/Molecules/adminMenu";
 
 
 
@@ -68,19 +74,51 @@ export class App extends Component{
     }
 
     render() {
-       const loggedIn=window.sessionStorage.getItem("loggedIn");
-
+        const LoggedIn=window.localStorage.getItem("loggedIn");
+        const userLoggedIn=window.localStorage.getItem("userLoggedIn");
+        const adminLoggedIn=window.localStorage.getItem("adminLoggedIn")
         return (
             <Router>
-                <Routes>
-                    <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
-                    <Route path="/register" element={<RegistrationPage pick={this.state.currentTime}/>}/>
-                    <Route path="/adminhome" element={<AdminHomePage pick={this.state.currentTime}/>}/>
-                    <Route path="/userhome" element={<UserHomePage pick={this.state.currentTime}/>}/>
+                <div>
+                    {
 
+                        LoggedIn==="true" && userLoggedIn === "true"? (
+                            <div>
+                                <Header pick={this.state.currentTime}/>
+                                <div className="videoStyle">
+                                <UserMenu />
+                                </div>
+                            </div>
+
+                        ):""}
+                </div>
+                <div>
+                    {
+
+                        LoggedIn==="true" && adminLoggedIn==="true"? (
+                            <div>
+                                <Header pick={this.state.currentTime}/>
+                                <div className="videoStyle">
+                                    <AdminMenu />
+                                </div>
+                            </div>
+
+                        ):""}
+                </div>
+                {
+
+                    <Routes>
+                    <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
+                    <Route exact path="/register" element={<RegistrationPage pick={this.state.currentTime}/>}/>
+                    <Route exact path="/adminhome" element= {<ProtectedRoute><AdminHomePage  pick={this.state.currentTime}/></ProtectedRoute>}/>
+                        <Route exact path="/userhome" element={<ProtectedRoute><UserHomePage pick={this.state.currentTime}/>}></ProtectedRoute>}/>
+                        <Route exact path="/videoupload" element={<ProtectedRoute><VideoUpload/>}></ProtectedRoute>}/>
+                       <Route exact path="videodownload" element={<ProtectedRoute><VideoDownload/>}></ProtectedRoute>}/>
 
 
                 </Routes>
+
+                }
             </Router>
         );
 

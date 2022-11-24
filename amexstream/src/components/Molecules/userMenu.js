@@ -5,5 +5,7 @@ import './userMenu.css'
 
 
 export const UserMenu=()=>(
+    <div>
     <TieredMenu model={items} className="menu" />
+    </div>
 )
