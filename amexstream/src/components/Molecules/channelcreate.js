@@ -36,7 +36,7 @@ export default function ChannelCreate(props){
         const value=event.target.value;
         //console.log(name,value)
         setInputs(values=>({...values,[name]:value}))
-        if((inputs.policyNo>0)&&(inputs.policyHolderName.length>5)&&(inputs.sumAssured>0))
+        if((inputs.channelName.length>0)&&(inputs.description.length>5))
             setIsAddDisabled(true);
     };
 
@@ -54,18 +54,6 @@ export default function ChannelCreate(props){
         if(isValid) {
             setIsAddDisabled(false);
             /*
-            axios.post(RestAPIUrl + "/addpolicy", inputs).then(res => {
-                console.log(res);
-                setPolicyNo("")
-                setPolicyHolderName("")
-                setFromDate("")
-                setToDate("")
-                setSumAssured("")
-            }).catch(error => {
-                throw(error);
-            });
-            */
-
             //Step6
             dispatch(createPolicy(inputs))
                 .then(data => {
@@ -79,7 +67,7 @@ export default function ChannelCreate(props){
                 .catch(e => {
                     console.log(e);
                 });
-
+        */
 
         }
 
