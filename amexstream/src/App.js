@@ -117,11 +117,11 @@ export class App extends Component{
                     <Route exact path="/" element={<LandingPage pick={this.state.currentTime}/>}/>
                     <Route exact path="/register" element={<RegistrationPage pick={this.state.currentTime}/>}/>
                     <Route exact path="/adminhome" element= {<ProtectedRoute><AdminHomePage  pick={this.state.currentTime}/></ProtectedRoute>}/>
-                        <Route exact path="/userhome" element={<ProtectedRoute><UserHomePage pick={this.state.currentTime}/>}></ProtectedRoute>}/>
-                        <Route exact path="/videoupload" element={<ProtectedRoute><VideoUpload/>}></ProtectedRoute>}/>
-                       <Route exact path="/videodownload" element={<ProtectedRoute><VideoDownload/>}></ProtectedRoute>}/>
-                        <Route exact path="/channelcreate" element={<ProtectedRoute><ChannelCreate/>}></ProtectedRoute>}/>
-                        <Route exact path="/channelview" element={<ProtectedRoute><ChannelsContainer/>}></ProtectedRoute>}/>
+                        <Route exact path="/userhome" element={<ProtectedRoute><UserHomePage pick={this.state.currentTime}/></ProtectedRoute>}/>
+                        <Route exact path="/videoupload" element={<ProtectedRoute><VideoUpload/></ProtectedRoute>}/>
+                       <Route exact path="/videodownload" element={<ProtectedRoute><VideoDownload/></ProtectedRoute>}/>
+                        <Route exact path="/channelcreate" element={<ProtectedRoute><ChannelCreate/></ProtectedRoute>}/>
+                        <Route exact path="/channelview" element={<ProtectedRoute><ChannelsContainer/></ProtectedRoute>}/>
                 </Routes>
 
                 }

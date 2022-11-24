@@ -3,7 +3,7 @@ import amexChannelReducer from "./channel/amexChannelReducer";
 
 
 const rootReducer = combineReducers({
-    channelReducer: amexChannelReducer
+    channels: amexChannelReducer
 })
 
 export default rootReducer

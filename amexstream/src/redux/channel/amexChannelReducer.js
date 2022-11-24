@@ -20,14 +20,14 @@ const reducer = (state = initialState, action) => {
                 error: ''
             }
 
-        case 'FETCH_CHANNEL_SUCCESS':
+        case 'FETCH_CHANNELS_SUCCESS':
             console.log(action.payload);
             return {
                 loading: false,
                 channels: action.payload,
                 error: ''
             }
-        case 'FETCH_CHANNEL_FAILURE':
+        case 'FETCH_CHANNELS_FAILURE':
             return {
                 loading: false,
                 channels: [],

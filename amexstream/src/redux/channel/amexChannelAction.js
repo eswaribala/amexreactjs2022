@@ -1,10 +1,11 @@
 import ChannelDataService from "../services/channelService";
 import {CREATE_CHANNEL} from "./types";
 
+
 export const fetchChannels = () => {
     return (dispatch) => {
         dispatch(fetchChannelsRequest())
-        fetch("http://localhost:4000/api/users/channels",
+        return fetch("http://localhost:4000/api/users/channels",
             {
                 method: 'GET',
                 headers: {
@@ -14,32 +15,28 @@ export const fetchChannels = () => {
             })
             .then(res=>res.json())
             .then(d=>{
+                const channels = d
+                setTimeout(() => {  // to emulate some network delay
+                    dispatch(fetchChannelsSuccess(channels))
+                }, 2000)
 
-                    const channels = d
-                    setTimeout(() => {  // to emulate some network delay
-                        dispatch(fetchChannelsSuccess(channels))
-                    }, 2000)
-            }
-            )
-            .catch(error => {
+            }).catch(error => {
                 dispatch(fetchChannelsFailure(error.message))
             })
-        /*
-        axios
-            .get('http://localhost:4000/channels')
+        /*axios
+            .get('http://localhost:4000/api/users/channels')
             .then(response => {
-                const products = response.data
+                const channels = response.data
                 setTimeout(() => {  // to emulate some network delay
-                    dispatch(fetchChannelsSuccess(products))
+                    dispatch(fetchChannelsSuccess(channels))
                 }, 2000)
             })
             .catch(error => {
                 dispatch(fetchChannelsFailure(error.message))
-            })
-
-         */
+            })*/
     }
 }
+
 
 export const fetchChannelsRequest = () => {
     return {
@@ -49,6 +46,7 @@ export const fetchChannelsRequest = () => {
 
 export const fetchChannelsSuccess = channels => {
     return {
+
         type: 'FETCH_CHANNELS_SUCCESS',
         payload: channels
     }

@@ -1,0 +1,65 @@
+pipeline{
+  agent any
+  tools {
+    nodejs 'node'
+    maven 'maven'
+  }
+  stages{
+        stage('Test and coverage'){
+                      steps{
+                          script{
+                                 try{
+                                      sh "yarn --version"
+                                      sh "npm config set legacy-peer-deps true"
+                                      sh "npm install"
+                                      sh "npm test --coverage --watchAll false"
+                                 }
+                                 catch(all){
+                                      echo "Test stage Failed"
+                                     // sh "aws sns publish --region=${AWS_REGION} --topic-arn arn:aws:sns:us-east-1:194745857795:EmailNotifier --message 'client react app: Test and Coverage Failed and pipeline is stopped'"
+                                      exit 1
+                                 }
+                          }
+                     }
+        }
+
+        stage('Yarn Build'){
+                    steps{
+                        script{
+                               try{
+                                    sh "npm run build"
+                               }
+                               catch(all){
+                                    echo "Build stage Failed"
+                                 //   sh "aws sns publish --region=${AWS_REGION} --topic-arn arn:aws:sns:us-east-1:194745857795:EmailNotifier --message 'client react app: Build Failed and pipeline is stopped'"
+                                    exit 1
+                               }
+                        }
+                    }
+        }
+        stage('SonarQube Report'){
+                    steps{
+                      script{
+                        try{
+                          sh "npm run sonar"
+                        }
+                        catch(all){
+                          echo "sonar stage failed"
+                          //sh "aws sns publish --region=${AWS_REGION} --topic-arn arn:aws:sns:us-east-1:194745857795:EmailNotifier --message 'client react app: SonarQube Report Generation Failed and pipeline is stopped'"
+                          exit 1
+                        }
+                      }
+                    }
+        }
+        /* stage('Deploy to AWS S3'){
+                    steps {
+                    withAWS(region:'us-east-1',credentials:'s3-credentials') {
+                        sh 'echo "Uploading content with AWS credentials"'
+                            s3Upload(file:'build', bucket:'ps-stream-prod-bucket', path:'')
+                        }
+                    cfInvalidate(distribution:'E200Q0EW8HQWPT', paths:[' *//*'], waitForCompletion: true)
+                    }
+        } */
+
+  }
+}
