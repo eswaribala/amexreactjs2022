@@ -54,10 +54,11 @@ export default function ChannelCreate(props){
         setErrors(response.errorsValue);
         console.log(errors);
         let isValid=response.status;
-
+        console.log(isValid)
 
         if(isValid) {
             setIsAddDisabled(false);
+            console.log(inputs)
             /*
             //Step6
             dispatch(createPolicy(inputs))
@@ -93,10 +94,7 @@ export default function ChannelCreate(props){
                              className="form-control"
                              onChange={handleOnChange}/>
 
-                        {errors.channelName &&
-                        <div style={{ color: "red", paddingBottom: 10 }}>
-                            {errors.channelName}</div>
-                        }
+
 
                 </div>
                     <div className="field">
@@ -106,10 +104,7 @@ export default function ChannelCreate(props){
                                 className="form-control"
                                 onChange={handleOnChange} />
 
-                        {errors.karmaPoints &&
-                        <div style={{ color: "red", paddingBottom: 10 }}>
-                            {errors.karmaPoints}</div>
-                        }
+
                 </div>
                     <div className="field">
 
@@ -118,10 +113,7 @@ export default function ChannelCreate(props){
                                       className="form-control"
                                       onChange={handleOnChange}/>
 
-                        {errors.description &&
-                        <div style={{ color: "red", paddingBottom: 10 }}>
-                            {errors.description}</div>
-                        }
+
                 </div>
                     <div className="field">
 
@@ -129,10 +121,7 @@ export default function ChannelCreate(props){
                         <Checkbox id="active" inputId="active" name="active" value={active} onChange={handleOnChange} ></Checkbox>
 
 
-                          {errors.active &&
-                        <div style={{ color: "red", paddingBottom: 10 }}>
-                            {errors.active}</div>
-                        }
+
                 </div>
 
                     <Button label="Submit" className="mt-3 form-control" aria-label="Submit"

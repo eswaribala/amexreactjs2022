@@ -17,9 +17,11 @@
 
 }
 
-.form-demo .card {
-    width: 700px;
-    margin-left: 50%;
+
+#form-demo .card {
+    width: 25%;
+    height:100px;
+    margin-left: 60%;
     margin-top:5%;
     background-color: darkslateblue;
     font-size: x-large;

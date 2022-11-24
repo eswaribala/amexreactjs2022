@@ -1,8 +1,10 @@
 /* FormDemo.css */
 
 
-.form-demo .card {
+.regform .card {
     width: 500px;
+
+    margin-top:5%;
     margin-left: 65%;
     background-color: darkslateblue;
     font-size: x-large;

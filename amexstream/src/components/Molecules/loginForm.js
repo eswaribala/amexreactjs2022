@@ -118,7 +118,7 @@ export const LoginForm = () => {
     );
 
     return (
-        <div className="form-demo">
+        <div id="form-demo">
             <Toast ref={toast}></Toast>
             <Dialog visible={showMessage}  onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
                 <div className="flex align-items-center flex-column pt-6 px-3">
