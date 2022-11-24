@@ -9,9 +9,9 @@ pipeline{
                       steps{
                           script{
                                  try{
-                                      bat "yarn --version"
-                                      bat "npm config set legacy-peer-deps true"
-                                      bat "npm install"
+                                      bat "yarn -v"
+                                   //   bat "npm config set legacy-peer-deps true"
+                                      bat "cd amexstream" & "npm install"
                                    //   sh "npm test --coverage --watchAll false"
                                  }
                                  catch(all){
@@ -27,7 +27,7 @@ pipeline{
                     steps{
                         script{
                                try{
-                                    bat "npm run build"
+                                    bat "cd amexstream" & "npm run build"
                                }
                                catch(all){
                                     echo "Build stage Failed"
