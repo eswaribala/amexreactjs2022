@@ -69,7 +69,7 @@ export default function ChannelCreate(props){
                     setKarmaPoints(0)
                     setDescription("")
                     setActive(false)
-                   
+
                 })
                 .catch(e => {
                     console.log(e);

@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import ChannelDataService from "../services/channelService";
 import {CREATE_CHANNEL} from "./types";
 
