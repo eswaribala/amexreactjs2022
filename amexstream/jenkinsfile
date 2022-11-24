@@ -12,6 +12,7 @@ pipeline{
                   bat "yarn install"
               }
               }
+              }
         stage('Test and coverage'){
                       steps{
                           script{
