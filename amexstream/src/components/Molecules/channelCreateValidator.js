@@ -12,14 +12,11 @@ export default function validate(values) {
         errors.channelName = 'Name is required';
         isValid=false
     }
-    if (!values.description) {
-        errors.description = 'Description is required';
-        isValid=false;
-    } else if (values.description.length < 5) {
+    if (values.description.length < 5) {
         errors.description = 'description must be 5 or more characters';
         isValid=false;
     }
-    if (!values.karmaPoints>=0) {
+    if (values.karmaPoints<0) {
         errors.karmaPoints = 'Karma Points required';
         isValid=false;
     }

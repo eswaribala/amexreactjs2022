@@ -7,6 +7,7 @@ import {Button} from "primereact/button";
 import { classNames } from 'primereact/utils';
 import './channelcreate.css'
 import validate from "./channelCreateValidator";
+import {createChannel} from "../../redux/channel/amexChannelAction";
 //react hook version 16.8
 export default function ChannelCreate(props){
     const { channelName: propsChannelName, karmaPoints:propsKarmaPoints, description: propsDescription,
@@ -59,21 +60,21 @@ export default function ChannelCreate(props){
         if(isValid) {
             setIsAddDisabled(false);
             console.log(inputs)
-            /*
+
             //Step6
-            dispatch(createPolicy(inputs))
+            dispatch(createChannel(inputs))
                 .then(data => {
                     console.log(data);
-                    setPolicyNo("")
-                    setPolicyHolderName("")
-                    setFromDate("")
-                    setToDate("")
-                    setSumAssured("")
+                    setChannelName("")
+                    setKarmaPoints(0)
+                    setDescription("")
+                    setActive(false)
+                   
                 })
                 .catch(e => {
                     console.log(e);
                 });
-        */
+
 
         }
 
