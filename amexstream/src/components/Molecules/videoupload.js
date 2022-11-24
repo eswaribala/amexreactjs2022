@@ -23,7 +23,7 @@ export const VideoUpload = () => {
 
             <div className="card">
 
-                <FileUpload name="amexvideo" url={url} onUpload={onUpload} multiple accept="image/*" maxFileSize={1000000000}
+                <FileUpload name="amexvideo" url={url} onUpload={onUpload} multiple accept="video/*" maxFileSize={1000000000}
                            />
             </div>
         </div>

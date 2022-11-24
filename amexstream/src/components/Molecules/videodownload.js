@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react'
 import {VideoService} from "../../services/videoService";
 
 import './videodownload.css'
-import { Dropdown } from 'primereact/dropdown';
-import { Skeleton } from 'primereact/skeleton';
+
 export const VideoDownload =() =>{
 
     const [data, setData] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState("");
     var videoService=new VideoService()
+
     useEffect(() => {
-        videoService.getVideos().then(data => {
-            setData(data)
+        videoService.getVideos().then(value => {
+            setData(value)
         });
 
     }); // eslin
@@ -22,6 +22,7 @@ export const VideoDownload =() =>{
         const videoSel = e.target.value;
         setSelectedVideo(videoSel);
         console.log(selectedVideo);
+
         var obj={
             "fileName":selectedVideo
         }
