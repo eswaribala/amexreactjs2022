@@ -1,41 +1,44 @@
 import axios from 'axios'
 
-import PolicyDataService from "../services/PolicyService";
-import {CREATE_POLICY} from "./types";
+import ChannelDataService from "../services/channelService";
+import {CREATE_CHANNEL} from "./types";
 
-export const fetchProducts = () => {
+export const fetchChannels = () => {
     return (dispatch) => {
-        dispatch(fetchProductsRequest())
+        dispatch(fetchChannelsRequest())
+        /*
         axios
-            .get('http://localhost:3004/insuranceProducts')
+            .get('http://localhost:4000/channels')
             .then(response => {
                 const products = response.data
                 setTimeout(() => {  // to emulate some network delay
-                    dispatch(fetchProductsSuccess(products))
+                    dispatch(fetchChannelsSuccess(products))
                 }, 2000)
             })
             .catch(error => {
-                dispatch(fetchProductsFailure(error.message))
+                dispatch(fetchChannelsFailure(error.message))
             })
+
+         */
     }
 }
 
-export const fetchProductsRequest = () => {
+export const fetchChannelsRequest = () => {
     return {
-        type: 'FETCH_PRODUCTS_REQUEST'
+        type: 'FETCH_CHANNELS_REQUEST'
     }
 }
 
-export const fetchProductsSuccess = insProducts => {
+export const fetchChannelsSuccess = channels => {
     return {
-        type: 'FETCH_PRODUCTS_SUCCESS',
-        payload: insProducts
+        type: 'FETCH_CHANNELS_SUCCESS',
+        payload: channels
     }
 }
 
-export const fetchProductsFailure = error => {
+export const fetchChannelsFailure = error => {
     return {
-        type: 'FETCH_PRODUCTS_FAILURE',
+        type: 'FETCH_CHANNELS_FAILURE',
         payload: error
     }
 }
@@ -43,10 +46,10 @@ export const fetchProductsFailure = error => {
 
 export const createChannel = (values) => async (dispatch) => {
     try {
-        const res = await PolicyDataService.create(values);
+        const res = await ChannelDataService.create(values);
 
         dispatch({
-            type: CREATE_POLICY,
+            type: CREATE_CHANNEL,
             payload: res.data,
         });
 

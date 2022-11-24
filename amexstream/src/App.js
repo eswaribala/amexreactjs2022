@@ -14,6 +14,8 @@ import Header from "./components/Molecules/header";
 import ProtectedRoute from "./components/Organisms/ProtectedRoute";
 import {AdminMenu} from "./components/Molecules/adminMenu";
 import ChannelCreate from "./components/Molecules/channelcreate";
+import store from "./redux/store";
+import {Provider} from "react-redux";
 
 
 
@@ -79,7 +81,9 @@ export class App extends Component{
         const userLoggedIn=window.localStorage.getItem("userLoggedIn");
         const adminLoggedIn=window.localStorage.getItem("adminLoggedIn")
         return (
+            <Provider store={store}>
             <Router>
+
                 <div>
                     {
 
@@ -121,6 +125,7 @@ export class App extends Component{
 
                 }
             </Router>
+            </Provider>
         );
 
     }

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
-import productsReducer from './products/productsReducer'
+import amexChannelReducer from "./channel/amexChannelReducer";
+
 
 const rootReducer = combineReducers({
     channelReducer: amexChannelReducer

@@ -1,0 +1,2 @@
+//STEP2
+export const CREATE_CHANNEL = "CREATE_CHANNEL";
