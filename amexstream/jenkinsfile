@@ -6,8 +6,11 @@ pipeline{
   }
   stages{
               stage('Prepare') {
+              steps{
+               script{
                   bat "npm install -g yarn"
                   bat "yarn install"
+              }
               }
         stage('Test and coverage'){
                       steps{
