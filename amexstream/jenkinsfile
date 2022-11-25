@@ -17,7 +17,7 @@ pipeline{
                       steps{
                           script{
                                  try{
-                                      
+
                                    //   bat "npm config set legacy-peer-deps true"
                                       bat "cd ./amexstream & npm install"
                                    //   sh "npm test --coverage --watchAll false"
@@ -45,20 +45,21 @@ pipeline{
                         }
                     }
         }
-        /* stage('SonarQube Report'){
+
+        stage('SonarQube Report'){
                     steps{
                       script{
                         try{
-                          sh "npm run sonar"
+                          bat "npm run sonar"
                         }
                         catch(all){
                           echo "sonar stage failed"
                           //sh "aws sns publish --region=${AWS_REGION} --topic-arn arn:aws:sns:us-east-1:194745857795:EmailNotifier --message 'client react app: SonarQube Report Generation Failed and pipeline is stopped'"
-                          exit 1
+                          //exit 1
                         }
                       }
                     }
-        } */
+        }
         /* stage('Deploy to AWS S3'){
                     steps {
                     withAWS(region:'us-east-1',credentials:'s3-credentials') {
