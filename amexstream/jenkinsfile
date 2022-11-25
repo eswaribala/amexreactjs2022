@@ -17,9 +17,9 @@ pipeline{
                       steps{
                           script{
                                  try{
-                                      bat "yarn -v"
+                                      sh "yarn -v"
                                    //   bat "npm config set legacy-peer-deps true"
-                                      bat "cd amexstream & npm install"
+                                      sh "cd amexstream & npm install"
                                    //   sh "npm test --coverage --watchAll false"
                                  }
                                  catch(all){
