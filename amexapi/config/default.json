@@ -4,6 +4,6 @@
     "port": 4000
   },
   "mongoserver": {
-    "url": "mongodb://localhost:27017/amexuserdb"
+    "url": "mongodb://mongo:27017/amexuserdb"
   }
 }

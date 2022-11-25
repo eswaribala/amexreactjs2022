@@ -15,4 +15,4 @@ RUN npm install
 COPY . .
 
 # Starting our application
-CMD yarn start
+CMD npm start
