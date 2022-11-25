@@ -1,0 +1,19 @@
+docker run --name intel-mongo -p 27017:27017 -d mongo
+docker exec -it intel-mongo /bin/bash
+cd bin
+mongosh
+show dbs;
+use customerdb;
+show collections;
+db.customers.find();
+
+
+docker build -f Dockerfile -t customerapi .
+docker run -p 7070:3000 --name customerapi-c1 --link intel-mongo:mongo -d customerapi:latest
+
+
+# tag and push
+
+docker tag customerapi:latest eswaribala/intelnodejsoct2022repo:customerapiv1
+docker push eswaribala/intelnodejsoct2022repo:customerapiv1
+docker run --name intel-eureka -p 8761:8761 -d springcloud/eureka
