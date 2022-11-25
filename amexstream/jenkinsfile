@@ -13,7 +13,7 @@ pipeline{
               }
               }
               }
-        stage('Test and coverage'){
+        stage('Install Required dependencies'){
                       steps{
                           script{
                                  try{
@@ -31,7 +31,7 @@ pipeline{
                      }
         }
 
-        stage('Yarn Build'){
+        stage('npm Build'){
                     steps{
                         script{
                                try{
@@ -45,7 +45,7 @@ pipeline{
                         }
                     }
         }
-
+/*
         stage('SonarQube Report'){
                     steps{
                       script{
@@ -60,7 +60,7 @@ pipeline{
                       }
                     }
         }
-        /* stage('Deploy to AWS S3'){
+  */      /* stage('Deploy to AWS S3'){
                     steps {
                     withAWS(region:'us-east-1',credentials:'s3-credentials') {
                         sh 'echo "Uploading content with AWS credentials"'
