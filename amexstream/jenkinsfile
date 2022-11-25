@@ -9,7 +9,7 @@ pipeline{
               steps{
                script{
                   bat "npm install -g yarn"
-                  bat "yarn install"
+                  bat "npm install --global yarn"
               }
               }
               }
