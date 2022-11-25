@@ -24,7 +24,6 @@ export const ChannelsContainer = () => {
     useEffect(() => {
         dispatch(fetchChannels())
 
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const dynamicColumns = columns.map((col,i) => {

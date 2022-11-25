@@ -12,6 +12,7 @@ import { classNames } from 'primereact/utils';
 import {CountryService} from "../../services/countryService";
 import './registrationForm.css';
 import {useNavigate} from "react-router";
+import urlData from '../../assets/data/url.json'
 //functional approach
 export const RegistrationForm = () => {
     const [countries, setCountries] = useState([]);
@@ -19,7 +20,7 @@ export const RegistrationForm = () => {
     const [formData, setFormData] = useState({});
     const countryService = new CountryService();
 //monitoring the state changes
-    const url='http://localhost:4000/api/users'
+    const url=urlData.data.apiUrl
     var navigate=useNavigate();
     useEffect(() => {
         countryService.getCountries().then(data => {

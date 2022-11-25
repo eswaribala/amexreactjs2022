@@ -1,11 +1,13 @@
 import ChannelDataService from "../services/channelService";
 import {CREATE_CHANNEL} from "./types";
-
+import urlData from '../../assets/data/url.json'
 
 export const fetchChannels = () => {
+ console.log(urlData.data.apiUrl);
+
     return (dispatch) => {
         dispatch(fetchChannelsRequest())
-        return fetch("http://localhost:4000/api/users/channels",
+        return fetch(urlData.data.apiUrl+"/channels",
             {
                 method: 'GET',
                 headers: {

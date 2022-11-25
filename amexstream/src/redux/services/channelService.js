@@ -1,7 +1,9 @@
 //import http from './http-common'
 //step4
+import urlData from "../../assets/data/url.json";
+
 const create = data => {
-    return fetch("http://localhost:4000/api/users/channels", {
+    return fetch(urlData.data.apiUrl+"/channels", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

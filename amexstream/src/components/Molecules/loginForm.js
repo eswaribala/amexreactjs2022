@@ -12,6 +12,8 @@ import { classNames } from 'primereact/utils';
 import './loginForm.css';
 import {useNavigate} from "react-router";
 import { Toast } from 'primereact/toast';
+
+import urlData from '../../assets/data/url.json'
 export const LoginForm = () => {
 
     const [showMessage, setShowMessage] = useState(false);
@@ -19,7 +21,7 @@ export const LoginForm = () => {
    window.localStorage.setItem("loggedIn","false");
 
     const toast = useRef(null);
-    const url='http://localhost:4000/api/users/auth'
+    const url=urlData.data.apiUrl+"/auth"
     var navigate=useNavigate();
 
     const formik = useFormik({
