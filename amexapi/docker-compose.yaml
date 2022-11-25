@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    command: npm run dev
+    ports:
+      - "4000:4000"
+    #volumes:
+    #  - .:/usr/app
+    depends_on:
+      - "mongo"
+
+
+  mongo:
+    container_name: "mongo-node"
+    #platform: linux/amd64
+    image: mongo:4.4.14
+    ports:
+      - "27017:27017"
+
+
