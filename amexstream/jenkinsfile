@@ -2,14 +2,14 @@ pipeline{
   agent any
   tools {
     nodejs 'node'
-    maven 'maven'
+
   }
   stages{
               stage('Prepare') {
               steps{
                script{
                   bat "npm install -g yarn"
-                  bat "npm install --global yarn"
+
               }
               }
               }
@@ -17,9 +17,9 @@ pipeline{
                       steps{
                           script{
                                  try{
-                                      sh "yarn -v"
+                                      bat "cd D:\Program Files (x86)\Yarn\bin & yarn -v"
                                    //   bat "npm config set legacy-peer-deps true"
-                                      sh "cd amexstream & npm install"
+                                      bat "cd ./amexstream & npm install"
                                    //   sh "npm test --coverage --watchAll false"
                                  }
                                  catch(all){
