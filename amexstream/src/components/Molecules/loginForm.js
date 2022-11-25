@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import { useFormik } from 'formik';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -14,10 +14,13 @@ import {useNavigate} from "react-router";
 import { Toast } from 'primereact/toast';
 
 import urlData from '../../assets/data/url.json'
+import {UserContext} from "./registrationForm";
 export const LoginForm = () => {
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
+
+    const user = useContext(UserContext);
    window.localStorage.setItem("loggedIn","false");
 
     const toast = useRef(null);
@@ -135,7 +138,7 @@ export const LoginForm = () => {
             <div className="flex justify-content-center">
                 <div className="card">
                     <div className="anchor">
-                    <p>Login</p>
+                        <p>{`Hello ${user}!`}</p>
                     <a href="/register" >Create Today</a>
                     </div>
                     <form onSubmit={formik.handleSubmit} className="p-fluid">
@@ -160,6 +163,8 @@ export const LoginForm = () => {
                     </form>
                 </div>
             </div>
+
+
 
         </div>
     );

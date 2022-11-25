@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import { useFormik } from 'formik';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -14,11 +14,16 @@ import './registrationForm.css';
 import {useNavigate} from "react-router";
 import urlData from '../../assets/data/url.json'
 //functional approach
+
+export const UserContext = createContext();
+
 export const RegistrationForm = () => {
     const [countries, setCountries] = useState([]);
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const countryService = new CountryService();
+    const [user, setUser] = useState("New User");
+
 //monitoring the state changes
     const url=urlData.data.apiUrl
     var navigate=useNavigate();
@@ -78,6 +83,7 @@ window.sessionStorage.setItem("loggedIn","false");
                 .then(function(res){ return res.json(); })
                 .then(function(data){
                     setShowMessage(true);
+
                     setTimeout(()=>{
                         navigate("/")
                     },2500)
@@ -166,6 +172,13 @@ window.sessionStorage.setItem("loggedIn","false");
                     </form>
                 </div>
             </div>
+
+
+                <UserContext.Provider value={user}>
+                    <h1>{`Hello ${user}!`}</h1>
+
+                </UserContext.Provider>
+
         </div>
     );
 }
